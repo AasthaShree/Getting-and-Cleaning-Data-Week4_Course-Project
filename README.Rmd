@@ -1,0 +1,43 @@
+---
+output:
+  github_document: default
+  html_document: default
+---
+Getting and Cleaning Data Course Project- Week 4
+
+This document explains the project completed as part of  “Getting Data and Cleaning” assignment offered by Johns Hopkins University through Coursera.com.
+
+Objective:
+The purpose of this project is to demonstrate the ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis.
+
+Data setup:
+Download and unzip the data file into the working directory
+Source- http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+  Project data- https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+  
+Data description:
+The data is for 30 subjects performing six activities wearing a waist-mounted smartphone. The recorded data contains 561 time and frequency domain based variables captured using the embedded accelerometer and gyroscope (sensor signals)
+Check the README file downloaded for further information on the data and variable structure.
+
+Actions for data analysis:
+  Create R script called run_analysis.R for the following actions to be performed.
+1.	Merges the training and the test sets to create one data set.
+2.	Extracts only the measurements on the mean and standard deviation for each measurement.
+3.	Uses descriptive activity names to name the activities in the data set
+4.	Appropriately labels the data set with descriptive variable names.
+5.	From the data set in step 4, creates a second, independent tidy data set with the average of each     variable for each activity and each subject.
+
+R code explanation:
+1. Extract the project data and unzip the files to the working R directory.
+2. Read training and test data along with the additional activity and features data. Use rbind to join     the training and test based data. Use cbind to combine and create a single data set.
+3. Name the variables for activity, features and subject. 
+3. Extract specific variable data - 'mean' and 'standard deviation' from the data set. Use grep to        process indexed variable for keywords.
+4. Label the data with descriptive names for the variables. Use merge to join the data set with the       already mapped activity label based on activity id. Use gsub in case you wish to replace              non-descriptive label with better descriptive label name.
+5. Create a second independent tidy dataset with the average of each variable for each subject and        each activity. Load library package ("dplyr"). Use aggregate to extract the mean as required.
+
+Files generated:
+CodeBook.md - to describe the variables, the data, and any transformations or work that was performed to clean up the data.
+
+R script (run_analysis.R) - containing all the code to perform the analysis. Launch this by importing file to Rstudio.
+
+TidyDataset.txt - final output of independent data set generated as a text file. 
